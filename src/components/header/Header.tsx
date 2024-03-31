@@ -60,7 +60,7 @@ const Header = () => {
 const springs = useSpring({
   from: {opacity: 0, transform: 'rotate(2turn)'},
   to: {opacity: 1, transform: 'rotate(0)',},
-  config: {duration: 3000},
+  config: {duration: 2000},
   })
 
   const line = useSpring({
@@ -72,7 +72,7 @@ const springs = useSpring({
       opacity: 1,
       width: '1400px'
     },
-    config: {duration: 3000},
+    config: {duration: 2000},
 
   })
 
@@ -80,27 +80,26 @@ const springs = useSpring({
 
   return (
 
-    <Row md={12} className='mt-3'>
+    <Row md={12} className='mt-3 d-flex flex-md-row'>
 
 
       <animated.img></animated.img>
 
-      <Col md={8}><animated.div style={{width: 'max-content', height: 'max-content', ...springs}}><img src={imgLogo} alt="logo" /></animated.div></Col>
+      <Col md={8} className='d-flex justify-content-md-start justify-content-center mb-4'><animated.div style={{width: 'max-content', height: 'max-content', ...springs}}><img src={imgLogo} alt="logo" /></animated.div></Col>
 
 
-
-      <Col md={3} className='d-flex align-items-center justify-content-center'>
-        {menu.map((item, index) => {return <Col><Link style={{color: 'black', textDecoration: 'none', fontSize: '20px'}} to={item.path} key={index}>{item.title}</Link></Col>})}
+      <Col md={3} className='d-flex align-items-center justify-content-md-end justify-content-center flex-md-row mb-4'>
+        {menu.map((item, index) => {return <Col key={index} className='d-flex align-items-center justify-content-md-end justify-content-center'><Link style={{color: 'black', textDecoration: 'none', fontSize: '16px', fontFamily: 'Montserrat'}} to={item.path} key={index}>{item.title}</Link></Col>})}
       </Col>
 
 
-      <Col md={1} className='d-flex align-items-center justify-content-center'>
-        {socialLink.map((item, index) => {return <Col className='d-flex align-items-center justify-content-center'><a href={item.link} key={index}><img src={item.img} alt="social" /></a></Col>})}
+      <Col md={1} className='d-flex align-items-center justify-content-center flex-md-row mb-4'>
+        {socialLink.map((item, index) => {return <Col key={index} className='d-flex align-items-center justify-content-center'><a href={item.link} key={index}><img src={item.img} alt="social" /></a></Col>})}
       </Col>
 
 
       <Row>
-        <animated.div style={line}><Col md={12} style={{width: '100%', height: '1px', background: '#b8b8b8b8'}} className='mt-4'></Col></animated.div>
+        <animated.div style={line}><Col md={12} style={{width: '100%', height: '1px', background: '#b8b8b8b8'}} className=''></Col></animated.div>
 
       </Row>
 
