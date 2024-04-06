@@ -2,11 +2,6 @@ import { FC } from 'react'
 import { animated, useSpring } from '@react-spring/web'
 import { Link } from 'react-router-dom';
 
-
-// scrolll carousel
-
-import ScrollCarousel from 'scroll-carousel-react';
-
 //
 
 import { Col, Row } from 'react-bootstrap'
@@ -16,73 +11,103 @@ import { Col, Row } from 'react-bootstrap'
 import img1 from './../../asset/blockThree/sliderImg/1.png'
 import img2 from './../../asset/blockThree/sliderImg/2.png'
 import img3 from './../../asset/blockThree/sliderImg/3.png'
-import img4 from './../../asset/blockThree/sliderImg/4.png'
-import img5 from './../../asset/blockThree/sliderImg/5.png'
 
 
 
 
 // components
 
-import SliderImg from '../ui/sliderImg';
+import ImgBanner from '../ui/ImgBanner';
 
 //
 
 interface sliderArrProps {
   img: string
   link: string
-
 }
 
-const BlockThree = () => {
+
+interface blockThreeProps {
+  scrollAnimation: any
+}
+
+const BlockThree: FC<blockThreeProps> = ({ scrollAnimation }) => {
+
+  const {scroll, setScroll} = scrollAnimation
+
+  console.log(scroll)
 
 
-    const sliderArr: sliderArrProps[] = [
+  const sliderArr: sliderArrProps[] = [
 
-      {
-        img: img1,
-        link: '/',
-      },
+    {
+      img: img1,
+      link: '/',
+    },
 
-      {
-        img: img2,
-        link: '/',
-      },
+    {
+      img: img2,
+      link: '/',
+    },
 
-      {
-        img: img3,
-        link: '/',
-      },
+    {
+      img: img3,
+      link: '/',
+    }
 
-      {
-        img: img4,
-        link: '/',
-      },
-
-      {
-        img: img5,
-        link: '/',
-      },
-
-    ]
+  ]
 
 
-    // animated
+  // animated
 
-    const line = useSpring({
-      from: {
-        opcity: 0,
-        width: '0px'
-      },
-      to: {
-        opacity: 1,
-        width: '1400px'
-      },
-      config: {duration: 1000},
-      delay: 4000
+  const line = useSpring({
+    from: {
+      opcity: 0,
+      width: '0px'
+    },
+    to: {
+      opacity: 1,
+      width: '1400px'
+    },
+    config: {duration: 1000},
+    delay: 4000
 
-    })
+  })
 
+
+   const [imgOne, apiOne] = useSpring(() => ({
+    from: {
+      opacity: 0,
+      transform: 'translateX(-10px)'
+    },
+    config: {duration: 3000},
+   }))
+
+
+   const [imgTwo, apiTwo] = useSpring(() => ({
+    from: {
+      opacity: 0,
+      transform: 'translateX(-10px)'
+    },
+    config: {duration: 3000},
+   }))
+
+
+   const [imgThree, apiThree] = useSpring(() => ({
+    from: {
+      opacity: 0,
+      transform: 'translateX(-10px)'
+    },
+    config: {duration: 3000},
+   }))
+
+
+
+   if(scroll > 200) {
+    apiOne.start({opacity: 1, transform: 'translateX(0px)', delay: 500})
+    apiTwo.start({opacity: 1, transform: 'translateX(0px)', delay: 1000})
+    apiThree.start({opacity: 1, transform: 'translateX(0px)', delay: 1500})
+   }
 
 
   return (
@@ -90,34 +115,31 @@ const BlockThree = () => {
     <Row md={12} className='mt-4'>
 
         <Col md={6} className='d-flex align-items-center'>
-
           <Col md={4} className='d-flex align-items-center justify-content-center'><div style={{fontFamily: 'Unbounded', fontSize: '32px', color: '#FF974D'}}>Проекты</div></Col>
           <Col md={1} className='d-flex align-items-center justify-content-center'><div style={{fontFamily: 'Unbounded', fontSize: '20px', color: '#FF974D'}}>/</div></Col>
           <Col md={3} className='d-flex align-items-center justify-content-center'><div style={{fontFamily: 'Unbounded', fontSize: '20px', color: '#FF974D'}}>2019-2024</div></Col>
-
         </Col>
-
 
       <Row className='mb-4'>
         <animated.div style={line}><Col md={12} style={{width: '100%', height: '1px', background: '#b8b8b8b8'}} className='mt-4'></Col></animated.div>
       </Row>
 
-    <Row>
 
+      <Row className='mt-4 mb-4'>
+        <Col className='d-flex flex-row justify-content-between'>
+          <animated.div style={imgOne}>
+              <Col md={4}><ImgBanner img={sliderArr[0].img} /></Col>
+          </animated.div>
 
-    <ScrollCarousel speed={0.5} autoplay={true} margin={20}>
+          <animated.div style={imgTwo}>
+              <Col md={4}><ImgBanner img={sliderArr[1].img} /></Col>
+          </animated.div>
 
-
-    {sliderArr.map((card : sliderArrProps, index: number) => {
-      return <Link key={index} to={card.link}><SliderImg img={card.img}/></Link>
-    })}
-
-    </ScrollCarousel>
-
-
-
-    </Row>
-
+          <animated.div style={imgThree}>
+              <Col md={4}><ImgBanner img={sliderArr[2].img} /></Col>
+          </animated.div>
+        </Col>
+      </Row>
 
     </Row>
 

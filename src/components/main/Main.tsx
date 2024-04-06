@@ -31,7 +31,7 @@ const Main:FC<MainProps> = ({scrollAnimation}) => {
     <Row>
       <BlockOne title={`Творческий потенциал и дизайн решения`} />
       <BlockTwo />
-      <BlockThree />
+      <BlockThree scrollAnimation = {{scroll, setScroll}}/>
       <BlockFour  scrollAnimation = {{scroll, setScroll}}/>
     </Row>
 

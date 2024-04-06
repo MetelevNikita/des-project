@@ -4,6 +4,11 @@ import { animated, useSpring } from 'react-spring'
 import styled from 'styled-components'
 
 
+// redux
+
+import { useAppSelector } from '../types/redux-types'
+
+
 
 //
 
@@ -12,15 +17,18 @@ import { Row, Col } from 'react-bootstrap'
 // components
 
 import PortfolioCard from './portfolioCard'
+import { PortfolioCardType } from '../types/types'
 
 
 
 interface PortfolioPageProps {
   title: string
-  link: string
 }
 
 const PortfolioPage: FC = () => {
+
+  const portfolioSelector = useAppSelector((state) => state.portfolio)
+  console.log(portfolioSelector)
 
   const StyledMenu = styled.div`
       &:hover {
@@ -31,8 +39,10 @@ const PortfolioPage: FC = () => {
     `
 
   const [isHover, setIsHover] = useState(false)
-  console.log(isHover)
+  const [menu, setMenu] = useState('Графический дизайн')
 
+
+  console.log(menu)
 
   const line = useSpring({
     from: {
@@ -50,17 +60,14 @@ const PortfolioPage: FC = () => {
   const menuWork: PortfolioPageProps[] = [
     {
       title: 'Графический дизайн',
-      link: '/portfolio/graphicDesign'
     },
 
     {
       title: 'Веб-дизайн',
-      link: '/portfolio/web-design'
     },
 
     {
       title: 'Иллюстрации',
-      link: '/portfolio/illustration'
     },
 
   ]
@@ -84,10 +91,10 @@ const PortfolioPage: FC = () => {
 
 
     <Row md={12}>
-      <Col md={12} className='d-flex flex-row justify-content-between align-items-center mt-4'>
+      <Col md={12} className='d-flex flex-md-row flex-column justify-content-between align-items-center mt-4'>
 
         {menuWork.map((menu, index) => {
-          return <Link className='d-flex justify-content-center align-items-center' style={{textDecoration: 'none'}} to={menu.link}><Col style={{width: '100%', height: '100%', fontSize: '32px', fontFamily: 'Unbounded', color: 'black', textDecoration: 'none'}} md={4}><StyledMenu>{menu.title}</StyledMenu></Col></Link>
+          return <Col className='mb-3' onClick={() => {setMenu(menu.title)}} style={{width: '389px', height: '100%', fontSize: '26px', fontFamily: 'Unbounded', color: 'black', textDecoration: 'none', textAlign: 'center'}} md={4}><StyledMenu>{menu.title}</StyledMenu></Col>
         })}
 
       </Col>
@@ -96,10 +103,24 @@ const PortfolioPage: FC = () => {
 
 
     <Row className='mt-5 mb-5'>
+      <Col className='d-flex flex-md-row flex-column justify-content-center'>
 
-      <PortfolioCard />
+
+      {(menu === 'Графический дизайн') ? portfolioSelector.graphic.map((card: any, index: number) => {
+        return <Col className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' md={4} key={index}><PortfolioCard link='title' title={card.title} img={card.titleImage}></PortfolioCard></Col>
+      }) : <></>}
+
+      {(menu === 'Веб-дизайн') ? portfolioSelector.web.map((card: any, index: number) => {
+        return <Col className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' md={4} key={index}><PortfolioCard link='title' title={card.title} img={card.titleImage}></PortfolioCard></Col>
+      }) : <></>}
+
+      {(menu === 'Иллюстрации') ? portfolioSelector.illustration.map((card: any, index: number) => {
+        return <Col className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' md={4} key={index}><PortfolioCard link='title' title={card.title} img={card.titleImage}></PortfolioCard></Col>
+      }) : <></>}
 
 
+
+      </Col>
     </Row>
 
 

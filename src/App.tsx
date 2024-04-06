@@ -1,4 +1,10 @@
 import { FC, useState, useEffect, useRef } from 'react'
+import { useAppDispatch } from './components/types/redux-types';
+import { useAppSelector } from './components/types/redux-types';
+
+// redux async
+
+import { getAsyncPortfolioWeb, getAsyncPortfolioGraphic, getAsyncPortfolioIllustration } from './store/portfolioSlice';
 
 // css
 
@@ -24,15 +30,25 @@ import Footer from './components/footer/Footer';
 const App = () => {
 
 
-  const [scroll, setScroll] = useState(0)
+  // redux
 
+  useEffect(() => {
+    dispatch(getAsyncPortfolioWeb())
+    dispatch(getAsyncPortfolioGraphic())
+    dispatch(getAsyncPortfolioIllustration())
+  }, [])
+
+  const dispatch = useAppDispatch();
+  const PortfolioSelector = useAppSelector(state => state.portfolio);
+  console.log(PortfolioSelector)
+
+
+
+
+  const [scroll, setScroll] = useState(0)
   const handleScroll = () => {
    setScroll(window.scrollY)
-
-
   }
-
-
  window.addEventListener('scroll', handleScroll)
 
 

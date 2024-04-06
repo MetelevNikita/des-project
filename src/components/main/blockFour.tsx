@@ -14,6 +14,14 @@ import img from './../../asset/blockFour/img.svg'
 
 //
 
+const StyledMenu = styled.div`
+&:hover {
+  color: #FF974D;
+  text-decoration: underline;
+}
+`
+
+
 interface menuArrayProps {
   title: string
   link: string
@@ -50,12 +58,6 @@ const BlockFour: FC<BlockFourProps> = ({ scrollAnimation }) => {
     },
   ]
 
-  const StyledMenu = styled.div`
-  &:hover {
-    color: #FF974D;
-    text-decoration: underline;
-  }
-`
 
 
   // animated
@@ -99,21 +101,13 @@ const BlockFour: FC<BlockFourProps> = ({ scrollAnimation }) => {
       <Col md={8} className='mb-4'>
 
      <animated.div style={text1Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[0].link}><StyledMenu>{menuArray[0].title}</StyledMenu></Link></Col></animated.div>
-
-
      <animated.div style={text2Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[1].link}><StyledMenu>{menuArray[1].title}</StyledMenu></Link></Col></animated.div>
-
-
      <animated.div style={text3Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[2].link}><StyledMenu>{menuArray[2].title}</StyledMenu></Link></Col></animated.div>
-
-
 
       </Col>
 
       <Col md={4} className='mb-4'>
-
         <img src={img} alt="img" />
-
       </Col>
     </Row>
 
