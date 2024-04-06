@@ -33,11 +33,11 @@ const Header = () => {
   const menu: menuProps[] = [
     {
       title: 'О Дизайне',
-      path: '/'
+      path: '/info'
     },
     {
       title: 'Портфолио',
-      path: '/'
+      path: '/portfolio'
     }
   ]
 
@@ -60,7 +60,7 @@ const Header = () => {
 const springs = useSpring({
   from: {opacity: 0, transform: 'rotate(2turn)'},
   to: {opacity: 1, transform: 'rotate(0)',},
-  config: {duration: 2000},
+  config: {duration: 1000},
   })
 
   const line = useSpring({
@@ -72,7 +72,7 @@ const springs = useSpring({
       opacity: 1,
       width: '1400px'
     },
-    config: {duration: 2000},
+    config: {duration: 1000},
 
   })
 
@@ -83,9 +83,7 @@ const springs = useSpring({
     <Row md={12} className='mt-3 d-flex flex-md-row'>
 
 
-      <animated.img></animated.img>
-
-      <Col md={8} className='d-flex justify-content-md-start justify-content-center mb-4'><animated.div style={{width: 'max-content', height: 'max-content', ...springs}}><img src={imgLogo} alt="logo" /></animated.div></Col>
+      <Col md={8} className='d-flex justify-content-md-start justify-content-center mb-4'><animated.div style={{width: 'max-content', height: 'max-content', ...springs}}><Link to={'/'}><img src={imgLogo} alt="logo" /></Link></animated.div></Col>
 
 
       <Col md={3} className='d-flex align-items-center justify-content-md-end justify-content-center flex-md-row mb-4'>

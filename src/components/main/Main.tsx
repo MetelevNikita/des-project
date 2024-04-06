@@ -16,46 +16,23 @@ import BlockFour from './blockFour'
 
 import SliderController from '../slider/sliderController'
 
+interface MainProps {
+  scrollAnimation: any
+}
 
 
+const Main:FC<MainProps> = ({scrollAnimation}) => {
 
-const Main:FC = () => {
-
-
- const [scroll, setScrol] = useState(0)
-
- const handleScroll = () => {
-  setScrol(window.scrollY)
-
-
- }
-
-
-window.addEventListener('scroll', handleScroll)
-
-
-
-
-
+   const {scroll, setScroll} = scrollAnimation
 
 
   return (
 
     <Row>
       <BlockOne title={`Творческий потенциал и дизайн решения`} />
-
-      {/*  */}
-
-      <SliderController />
-
-      {/*  */}
-
       <BlockTwo />
       <BlockThree />
-      <BlockFour  scrollAnimation = {{scroll, setScrol}}/>
-
-
-
+      <BlockFour  scrollAnimation = {{scroll, setScroll}}/>
     </Row>
 
   )

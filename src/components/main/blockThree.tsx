@@ -78,7 +78,7 @@ const BlockThree = () => {
         opacity: 1,
         width: '1400px'
       },
-      config: {duration: 3000},
+      config: {duration: 1000},
       delay: 4000
 
     })

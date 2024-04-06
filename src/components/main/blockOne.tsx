@@ -22,8 +22,8 @@ const BlockOne: FC<blockOneProps> = ({ title }) => {
   const styleSpring = useSpring({
     from: {transform: 'translateY(-500px)'},
     to: {transform: 'translateY(0px)'},
-    config: { tension: 120, friction: 14, duration: 2000},
-    delay: 2000,
+    config: {duration: 2000},
+    delay: 0,
   })
 
 

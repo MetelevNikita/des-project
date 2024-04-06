@@ -25,9 +25,7 @@ const BlockTwo: FC = () => {
       opacity: 1,
       width: '1400px'
     },
-    config: {duration: 3000},
-    delay: 3000
-
+    config: {duration: 2000},
   })
 
 
@@ -35,7 +33,7 @@ const BlockTwo: FC = () => {
     from: {transform: 'translateX(-800px)', opacity: 0},
     to: {transform: 'translateX(0px)', opacity: 1},
     config: {tension: 120, friction: 14, duration: 2000},
-    delay: 2000,
+
   })
 
 
@@ -43,7 +41,7 @@ const BlockTwo: FC = () => {
     from: {transform: 'translateX(800px)', opacity: 0},
     to: {transform: 'translateX(0px)', opacity: 1},
     config: {tension: 120, friction: 14, duration: 2000},
-    delay: 2000,
+
   })
 
 
