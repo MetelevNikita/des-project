@@ -1,6 +1,7 @@
 import { FC } from 'react'
 import { Link } from 'react-router-dom'
 import { animated, useSpring } from '@react-spring/web'
+import styled from'styled-components'
 
 //
 
@@ -12,25 +13,37 @@ import imgLogo from './../../asset/logo.svg'
 import be from './../../asset/header/behance.svg'
 import vk from './../../asset/header/vk.svg'
 
+// types
 
-interface menuProps {
-  title: string
-  path: string
-}
+import { menuType,  socialLinkType} from '../types/types'
 
-interface SocialLinkProps {
-  img: string,
-  link: string
-}
+
+
+
+
 
 
 // animtated
 
 
 
+
+
 const Header = () => {
 
-  const menu: menuProps[] = [
+
+  const StyledLink = styled.div`
+    &:hover {
+    transform: scale(1.10);
+    transition: all 0.3s ease-in-out;
+  }
+  `
+
+
+
+
+
+  const menu: menuType[] = [
     {
       title: 'О Дизайне',
       path: '/info'
@@ -41,15 +54,15 @@ const Header = () => {
     }
   ]
 
-  const socialLink: SocialLinkProps[] = [
+  const socialLink: socialLinkType[] = [
     {
       img: be,
-      link: 'https://www.behance.net/'
+      link: 'https://www.behance.net/ol_semenova'
     },
 
     {
       img: vk,
-      link: 'https://vk.com'
+      link: 'https://web.telegram.org/k/#@polezno_design'
     }
   ]
 
@@ -92,7 +105,7 @@ const springs = useSpring({
 
 
       <Col md={1} className='d-flex align-items-center justify-content-center flex-md-row mb-4'>
-        {socialLink.map((item, index) => {return <Col key={index} className='d-flex align-items-center justify-content-center'><a href={item.link} key={index}><img src={item.img} alt="social" /></a></Col>})}
+        {socialLink.map((item, index) => {return <Col key={index} className='d-flex align-items-center justify-content-center'><StyledLink><a href={item.link} key={index}><img src={item.img} alt="social" /></a></StyledLink></Col>})}
       </Col>
 
 

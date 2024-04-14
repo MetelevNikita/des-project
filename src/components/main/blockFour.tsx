@@ -81,7 +81,7 @@ const BlockFour: FC<BlockFourProps> = ({ scrollAnimation }) => {
 
 
 
-  if(scroll > 400) {
+  if(scroll > 200) {
     apiText1({opacity: 1, transform: 'translateX(0px)', delay: 200})
     apiText2({opacity: 1, transform: 'translateX(0px)', delay: 400})
     apiText3({opacity: 1, transform: 'translateX(0px)', delay: 600})

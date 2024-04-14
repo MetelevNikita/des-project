@@ -28,6 +28,20 @@ const InfoAbout = () => {
   })
 
 
+  const imgOpen = useSpring({
+    from: {
+      opacity: 0,
+      transform: 'translateX(10%)'
+    },
+    to: {
+      opacity: 1,
+      transform: 'translateX(0)'
+    },
+    config: {duration: 2000},
+    delay: 1000
+  })
+
+
   const textOne = useSpring({
     from: {
       opacity: 0,
@@ -97,13 +111,11 @@ const InfoAbout = () => {
 
       <Col md={6} className='d-flex justify-content-center mb-4'>
 
-
-        <Col><img style={{zIndex: '0'}} src={photo} alt="photo" /></Col>
+        <animated.div style={imgOpen}><Col><img style={{zIndex: '0'}} src={photo} alt="photo" /></Col></animated.div>
 
       </Col>
 
       <Col md={6} className='mb-4'>
-
 
           <animated.div style={textOne}>
               <Col className='mb-3' style={{fontFamily: 'Montserrat', fontSize: '16px', lineHeight: '30px'}}>

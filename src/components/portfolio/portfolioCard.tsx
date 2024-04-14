@@ -37,7 +37,7 @@ const PortfolioCard: FC<PortfolioCardProps> = ({ title, img, link }) => {
   const mouseOn = () => {
     setMouse(true)
     api.start({
-      transform: 'translateX(0px) translateY(0px)'
+      transform: 'translateX(5px) translateY(-12px)'
     })
   }
 
@@ -45,7 +45,7 @@ const PortfolioCard: FC<PortfolioCardProps> = ({ title, img, link }) => {
   const mouseOff = () => {
     setMouse(false)
     api.start({
-      transform: 'translateX(-100px) translateY(100px)'
+      transform: 'translateX(-100px) translateY(80px)'
     })
 
   }

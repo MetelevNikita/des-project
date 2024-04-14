@@ -18,4 +18,15 @@ export type PortfolioCardType = {
 }
 
 
+export type menuType = {
+  title: string;
+  path: string
+}
+
+
+export type socialLinkType = {
+  img: string
+  link: string
+}
+
 
