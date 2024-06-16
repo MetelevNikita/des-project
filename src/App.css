@@ -1,3 +1,6 @@
+@import './reset.css';
+
+
 .hover-portfolio-menu:hover {
 
   color: #FF974D;

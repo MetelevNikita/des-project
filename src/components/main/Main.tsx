@@ -18,12 +18,14 @@ import SliderController from '../slider/sliderController'
 
 interface MainProps {
   scrollAnimation: any
+  menuElem: any
 }
 
 
-const Main:FC<MainProps> = ({scrollAnimation}) => {
+const Main:FC<MainProps> = ({scrollAnimation, menuElem}) => {
 
    const {scroll, setScroll} = scrollAnimation
+   const {menuTitle, setMenuTitle} = menuElem
 
 
   return (
@@ -32,7 +34,7 @@ const Main:FC<MainProps> = ({scrollAnimation}) => {
       <BlockOne title={`Творческий потенциал и дизайн решения`} />
       <BlockTwo />
       <BlockThree scrollAnimation = {{scroll, setScroll}}/>
-      <BlockFour  scrollAnimation = {{scroll, setScroll}}/>
+      <BlockFour menuPortfolio={menuElem}  scrollAnimation = {{scroll, setScroll}}/>
     </Row>
 
   )

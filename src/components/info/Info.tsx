@@ -13,9 +13,10 @@ import BlockFour from '../main/blockFour'
 
 interface InfoProps {
   scrollAnimation: any
+  menuElem: any
 }
 
-const Info: FC<InfoProps> = ({ scrollAnimation }) => {
+const Info: FC<InfoProps> = ({ scrollAnimation, menuElem }) => {
 
   const {scroll, setScroll} = scrollAnimation
 
@@ -24,7 +25,7 @@ const Info: FC<InfoProps> = ({ scrollAnimation }) => {
 
       <BlockOne title={`Творческий потенциал и дизайн решения`} />
       <InfoAbout />
-      <BlockFour scrollAnimation={{scroll, setScroll}} />
+      <BlockFour menuPortfolio={menuElem} scrollAnimation={{scroll, setScroll}} />
 
     </Row>
   )

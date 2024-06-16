@@ -8,8 +8,6 @@ import styled from 'styled-components'
 
 import { useAppSelector } from '../types/redux-types'
 
-
-
 //
 
 import { Row, Col } from 'react-bootstrap'
@@ -17,18 +15,36 @@ import { Row, Col } from 'react-bootstrap'
 // components
 
 import PortfolioCard from './portfolioCard'
+import PortfolioMenu from './PortfolioMenu'
+
+// img
+
+import web from '../../asset/portfolio-menu/web.svg'
+import graph from '../../asset/portfolio-menu/graph.svg'
+import illustration from '../../asset/portfolio-menu/illustr.svg'
+
+
 import { PortfolioCardType } from '../types/types'
 
 
 
 interface PortfolioPageProps {
-  title: string
+
+  menuPortfolio: any
 }
 
-const PortfolioPage: FC = () => {
+
+interface menuArrProps {
+  title: string
+  img: string
+
+}
+
+const PortfolioPage:FC<PortfolioPageProps> =  ( { menuPortfolio } )  =>  {
 
   const portfolioSelector = useAppSelector((state) => state.portfolio)
-  console.log(portfolioSelector)
+  const {menuTitle, setMenuTitle} = menuPortfolio
+
 
   const StyledMenu = styled.div`
       &:hover {
@@ -39,10 +55,7 @@ const PortfolioPage: FC = () => {
     `
 
   const [isHover, setIsHover] = useState(false)
-  const [menu, setMenu] = useState('Графический дизайн')
 
-
-  console.log(menu)
 
   const line = useSpring({
     from: {
@@ -57,31 +70,28 @@ const PortfolioPage: FC = () => {
   })
 
 
-  const menuWork: PortfolioPageProps[] = [
+  const menuWork: menuArrProps[] = [
     {
       title: 'Графический дизайн',
+      img: graph
     },
 
     {
       title: 'Веб-дизайн',
+      img: web
     },
 
     {
       title: 'Иллюстрации',
+      img: illustration
     },
 
   ]
 
 
-
-
-
-
-
-
   return (
 
-    <Row md={12} style={{height: '100%'}}>
+    <Row lg={12} style={{height: '100%'}} className='d-flex'>
 
 
       <Row className='mt-4'>
@@ -90,38 +100,34 @@ const PortfolioPage: FC = () => {
 
 
 
-    <Row md={12}>
-      <Col md={12} className='d-flex flex-md-row flex-column justify-content-between align-items-center mt-4'>
+      <Col className='d-flex flex-lg-row flex-column  mt-4'>
 
-        {menuWork.map((menu, index) => {
-          return <Col className='mb-3' onClick={() => {setMenu(menu.title)}} style={{width: '389px', height: '100%', fontSize: '26px', fontFamily: 'Unbounded', color: 'black', textDecoration: 'none', textAlign: 'center'}} md={4}><StyledMenu>{menu.title}</StyledMenu></Col>
-        })}
+          {menuWork.map((menu) => {return <Col className='d-flex align-items-center justify-content-center' md={12}><PortfolioMenu menuTitleArr={{menuTitle, setMenuTitle}} title={menu.title} img={menu.img}/></Col>})}
 
       </Col>
 
-    </Row >
 
 
-    <Row className='mt-5 mb-5'>
-      <Col className='d-flex flex-md-row flex-column justify-content-center'>
+
+      <Col lg={12} md={12} sm={12} xs={12} style={{width: '100%'}} className='d-flex justify-content-center flex-lg-row flex-column mb-4 mt-4'>
 
 
-      {(menu === 'Графический дизайн') ? portfolioSelector.graphic.map((card: any, index: number) => {
-        return <Col className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' md={4} key={index}><PortfolioCard link='title' title={card.title} img={card.titleImage}></PortfolioCard></Col>
+      {(menuTitle === 'Графический дизайн') ? portfolioSelector.graphic.map((card: any, index: number) => {
+        return <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' key={index}><PortfolioCard link={`${card.category}/${card.id}`} title={card.title} img={card.imgOne}></PortfolioCard></Col>
       }) : <></>}
 
-      {(menu === 'Веб-дизайн') ? portfolioSelector.web.map((card: any, index: number) => {
-        return <Col className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' md={4} key={index}><PortfolioCard link='title' title={card.title} img={card.titleImage}></PortfolioCard></Col>
+      {(menuTitle === 'Веб-дизайн') ? portfolioSelector.web.map((card: any, index: number) => {
+        return <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' key={index}><PortfolioCard link={`${card.category}/${card.id}`} title={card.title} img={card.titleImage}></PortfolioCard></Col>
       }) : <></>}
 
-      {(menu === 'Иллюстрации') ? portfolioSelector.illustration.map((card: any, index: number) => {
-        return <Col className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' md={4} key={index}><PortfolioCard link='title' title={card.title} img={card.titleImage}></PortfolioCard></Col>
+      {(menuTitle === 'Иллюстрации') ? portfolioSelector.illustration.map((card: any, index: number) => {
+        return <Col md={4} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' key={index}><PortfolioCard link={`${card.category}/${card.id}`} title={card.title} img={card.titleImage}></PortfolioCard></Col>
       }) : <></>}
 
 
 
       </Col>
-    </Row>
+
 
 
 

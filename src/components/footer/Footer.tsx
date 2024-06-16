@@ -41,7 +41,7 @@ const Footer = () => {
   return (
 
     <Row md={12} style={{width: '100%', height: '80px', padding: '0px', backgroundColor: 'black', position: 'absolute', left: '0'}} className='d-flex justify-content-center align-items-center'>
-      <Col className='d-flex justify-content-center align-items-center' md={1}>
+      <Col className='d-flex justify-content-center align-items-center' md={2}>
 
 
       {socialLink.map((link) => {

@@ -11,6 +11,14 @@ import iconImg from './../../asset/blockTwo/icon img.png'
 import iconArrow from './../../asset/blockTwo/icon arrow.png'
 import bg from './../../asset/blockTwo/bg.png'
 
+
+// components
+
+import PortfolioButton from '../ui/PortfolioButton'
+
+
+//
+
 const BlockTwo: FC = () => {
 
 
@@ -47,17 +55,18 @@ const BlockTwo: FC = () => {
 
   return (
 
-    <Row md={12} className='mt-4 mb-4'>
+    <Row lg={12} className='mt-4 mb-4'>
 
 
       <Row className='mb-4'>
         <animated.div style={line}><Col md={12} style={{width: '100%', height: '1px', background: '#b8b8b8b8'}} className='mt-4'></Col></animated.div>
       </Row>
 
-      <Row className='mt-4 d-flex flex-row'>
+
+        <Col className='mt-4 d-flex flex-lg-row flex-column'>
 
 
-          <Col md={4} className='d-flex flex-column justify-content-md-start justify-content-center'>
+          <Col lg={4} md={12} className='d-flex flex-column justify-content-lg-start justify-content-center'>
             <animated.div style={blockLeft}>
                 <Col style={{maxWidth: '100%', height: 'max-content', fontSize: '22px', fontFamily: 'Montserrat', lineHeight: '35px'}} className=''>Моя страсть к дизайну исходит из желания создавать продукты, которые выделяются и приносят пользу людям</Col>
 
@@ -74,15 +83,13 @@ const BlockTwo: FC = () => {
 
 
 
-            <Col md={8} className='d-flex justify-content-md-end justify-content-center'>
+            <Col lg={8} md={12} className='d-flex justify-content-md-end justify-content-center'>
               <animated.div style={blockRight}>
-                  <Col><img style={{width: '100%', height: '100%'}} src={bg} alt="bg" /></Col>
+                  <Col><PortfolioButton /></Col>
               </animated.div>
             </Col>
 
-
-
-      </Row>
+      </Col>
 
     </Row>
 

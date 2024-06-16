@@ -29,32 +29,36 @@ interface menuArrayProps {
 
 interface BlockFourProps {
   scrollAnimation : any
+  menuPortfolio: any
 }
 
-const BlockFour: FC<BlockFourProps> = ({ scrollAnimation }) => {
+const BlockFour: FC<BlockFourProps> = ({ scrollAnimation, menuPortfolio }) => {
 
   const [text1, setText1] = useState<boolean>(false)
   const [text2, setText2] = useState<boolean>(false)
   const [text3, setText3] = useState<boolean>(false)
 
+
+
   const {scroll, setScroll} = scrollAnimation
+  const {menuTitle, setMenuTitle} = menuPortfolio
 
 
 
   const menuArray: menuArrayProps[] = [
     {
       title: 'Графический дизайн',
-      link: '',
+      link: '/portfolio',
     },
 
     {
       title: 'Веб-дизайн',
-      link: '',
+      link: '/portfolio',
     },
 
     {
       title: 'Иллюстрации',
-      link: '',
+      link: '/portfolio',
     },
   ]
 
@@ -100,9 +104,9 @@ const BlockFour: FC<BlockFourProps> = ({ scrollAnimation }) => {
     <Row md={12} className='mt-4 mb-4'>
       <Col md={8} className='mb-4'>
 
-     <animated.div style={text1Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[0].link}><StyledMenu>{menuArray[0].title}</StyledMenu></Link></Col></animated.div>
-     <animated.div style={text2Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[1].link}><StyledMenu>{menuArray[1].title}</StyledMenu></Link></Col></animated.div>
-     <animated.div style={text3Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[2].link}><StyledMenu>{menuArray[2].title}</StyledMenu></Link></Col></animated.div>
+     <animated.div style={text1Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[0].link}><StyledMenu onClick={() => {setMenuTitle('Графический дизайн')}}>{menuArray[0].title}</StyledMenu></Link></Col></animated.div>
+     <animated.div style={text2Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[1].link}><StyledMenu onClick={() => {setMenuTitle('Веб-дизайн')}}>{menuArray[1].title}</StyledMenu></Link></Col></animated.div>
+     <animated.div style={text3Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[2].link}><StyledMenu onClick={() => {setMenuTitle('Иллюстрации')}}>{menuArray[2].title}</StyledMenu></Link></Col></animated.div>
 
       </Col>
 

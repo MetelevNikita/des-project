@@ -25,6 +25,7 @@ import Header from './components/header/Header';
 import Main from './components/main/Main';
 import Info from './components/info/Info';
 import Portfolio from './components/portfolio/Portfolio';
+import PortfolioOpenPage from './components/portfolio/PortfolioOpenPage';
 import Footer from './components/footer/Footer';
 
 const App = () => {
@@ -40,9 +41,6 @@ const App = () => {
 
   const dispatch = useAppDispatch();
   const PortfolioSelector = useAppSelector(state => state.portfolio);
-  console.log(PortfolioSelector)
-
-
 
 
   const [scroll, setScroll] = useState(0)
@@ -52,6 +50,7 @@ const App = () => {
  window.addEventListener('scroll', handleScroll)
 
 
+ const [menuTitle, setMenuTitle] = useState('Графический дизайн')
 
   return (
     <div className='App'>
@@ -59,9 +58,10 @@ const App = () => {
         <Header/>
 
         <Routes>
-          <Route path='/' element={<Main scrollAnimation={{scroll, setScroll}}/>}/>
-          <Route path='/info' element={<Info scrollAnimation={{scroll, setScroll}}/>}/>
-          <Route path='/portfolio' element={<Portfolio />}/>
+          <Route path='/' element={<Main menuElem={{menuTitle, setMenuTitle}} scrollAnimation={{scroll, setScroll}}/>}/>
+          <Route path='/info' element={<Info menuElem={{menuTitle, setMenuTitle}} scrollAnimation={{scroll, setScroll}}/>}/>
+          <Route path='/portfolio' element={<Portfolio menuElem={{menuTitle, setMenuTitle}}/>}/>
+          <Route path='portfolio/:category/:id' element={<PortfolioOpenPage />}/>
         </Routes>
 
         <Footer/>

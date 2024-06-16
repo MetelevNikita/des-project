@@ -54,18 +54,8 @@ const PortfolioCard: FC<PortfolioCardProps> = ({ title, img, link }) => {
 
     <Link to={link} style={{textDecoration: 'none'}}>
 
-        <div style={{width:  '389px', height:  '459px', borderRadius: '77px', overflow: 'hidden'}} onMouseEnter={() => {mouseOn()}} onMouseLeave={() => {mouseOff()}}>
-        <div style={{backgroundColor: (!mouse) ? '#03030315' : '#00000075', width:  '389px', height:  '459px', display:  'flex', justifyContent:  'center', alignItems:  'center', flexDirection:  'column', borderRadius: '77px'}}>
-        <img src={img} alt="img" style={{zIndex: -1}}/>
-        </div>
-
-        <div style={{color: 'white', zIndex: 2, position: 'relative', top: '-410px', left: '50px', fontFamily: 'Unbounded', fontSize: '25px', opacity: (!mouse) ? 0 : 1}}>{title}</div>
-
-        {/* arrow clicked to portfolio page */}
-
-        <animated.div style={animatedArrow}><img src={iconArrow} alt="" style={{zIndex: 2, position: 'relative', top: '-155px', width: '130px'}}/></animated.div>
-
-      </div>
+      <Col><img style={{width: '390px', height: '271px'}} className='mb-3' src={img} alt="img-menu" /></Col>
+      <Col style={{color: 'black', maxWidth: '380px'}}>{title}</Col>
 
     </Link>
 

@@ -35,9 +35,6 @@ const BlockThree: FC<blockThreeProps> = ({ scrollAnimation }) => {
 
   const {scroll, setScroll} = scrollAnimation
 
-  console.log(scroll)
-
-
   const sliderArr: sliderArrProps[] = [
 
     {
@@ -114,10 +111,10 @@ const BlockThree: FC<blockThreeProps> = ({ scrollAnimation }) => {
 
     <Row md={12} className='mt-4'>
 
-        <Col md={6} className='d-flex align-items-center'>
-          <Col md={4} className='d-flex align-items-center justify-content-center'><div style={{fontFamily: 'Unbounded', fontSize: '32px', color: '#FF974D'}}>Проекты</div></Col>
-          <Col md={1} className='d-flex align-items-center justify-content-center'><div style={{fontFamily: 'Unbounded', fontSize: '20px', color: '#FF974D'}}>/</div></Col>
-          <Col md={3} className='d-flex align-items-center justify-content-center'><div style={{fontFamily: 'Unbounded', fontSize: '20px', color: '#FF974D'}}>2019-2024</div></Col>
+        <Col md={12} className='d-flex align-items-center'>
+          <Col ld={2} md={4} className='d-flex align-items-center justify-content-start'><div style={{fontFamily: 'Unbounded', fontSize: '32px', color: '#FF974D'}}>Проекты</div></Col>
+          <Col ld={4} md={3} className='d-flex align-items-center justify-content-start'><div style={{fontFamily: 'Unbounded', fontSize: '20px', color: '#FF974D'}}>/</div></Col>
+          <Col ld={8} md={3} className='d-flex align-items-center justify-content-start'><div style={{fontFamily: 'Unbounded', fontSize: '20px', color: '#FF974D'}}>2019-2024</div></Col>
         </Col>
 
       <Row className='mb-4'>
@@ -125,21 +122,21 @@ const BlockThree: FC<blockThreeProps> = ({ scrollAnimation }) => {
       </Row>
 
 
-      <Row className='mt-4 mb-4'>
-        <Col className='d-flex flex-row justify-content-between'>
+
+        <Col className='d-flex flex-lg-row flex-column justify-content-md-between justify-content-center mt-4 mb-4'>
           <animated.div style={imgOne}>
-              <Col md={4}><ImgBanner img={sliderArr[0].img} /></Col>
+              <Col className='d-flex justify-content-lg-start justify-content-center mb-3' md={12}><ImgBanner img={sliderArr[0].img} /></Col>
           </animated.div>
 
           <animated.div style={imgTwo}>
-              <Col md={4}><ImgBanner img={sliderArr[1].img} /></Col>
+              <Col  className='d-flex justify-content-lg-start justify-content-center mb-3' md={12}><ImgBanner img={sliderArr[1].img} /></Col>
           </animated.div>
 
           <animated.div style={imgThree}>
-              <Col md={4}><ImgBanner img={sliderArr[2].img} /></Col>
+              <Col className='d-flex justify-content-lg-start justify-content-center mb-3' md={12}><ImgBanner img={sliderArr[2].img} /></Col>
           </animated.div>
         </Col>
-      </Row>
+
 
     </Row>
 
