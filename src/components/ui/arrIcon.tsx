@@ -2,7 +2,7 @@ import { CSSProperties, FC } from'react'
 
 // img
 
-import iconArrImg from './../../asset/blockThree/iconArr.png'
+import iconArrImg from './../../asset/blockThree/iconArr.svg'
 
 interface arrIconProps {
   style: CSSProperties

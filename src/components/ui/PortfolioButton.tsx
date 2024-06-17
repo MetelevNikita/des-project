@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 
 // img
 
-import imgButton from '../../asset/blockTwo/portfolio-button.png'
+import imgButton from '../../asset/blockTwo/portfolio-button.svg'
 import videoPortfolio from '../../asset/blockTwo/video-img.png'
 
 
