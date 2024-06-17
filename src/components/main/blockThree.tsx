@@ -123,8 +123,8 @@ const BlockThree: FC<blockThreeProps> = ({ scrollAnimation, menuPortfolio }) => 
     <Row lg={12} md={12} className='mt-5'>
 
         <Col md={12} className='d-flex align-items-center'>
-          <Col ld={6} md={6} className='d-flex justify-content-start'><div style={{fontFamily: 'Unbounded', fontSize: 'calc(1rem + 0.5vw)', color: '#FF974D'}}>Проекты / 2019-2024</div></Col>
-          <Col ld={6} md={6} className='d-flex justify-content-end'><div style={{fontFamily: 'Unbounded', fontSize: 'calc(1rem + 0.5vw)', color: '#FF974D'}}>{menuTitle}</div></Col>
+          <Col ld={6} md={6} className='d-flex justify-content-start align-items-center'><div style={{fontFamily: 'Unbounded', fontSize: 'calc(1rem + 0.5vw)', color: '#FF974D'}}>Проекты / 2019-2024</div></Col>
+          <Col ld={6} md={6} className='d-flex justify-content-end align-items-center'><div style={{fontFamily: 'Unbounded', fontSize: 'calc(1rem + 0.5vw)', color: '#FF974D'}}>{menuTitle}</div></Col>
 
         </Col>
 

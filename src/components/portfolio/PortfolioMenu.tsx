@@ -33,6 +33,12 @@ const PortfolioMenu: FC<PortfolioMenuProps> = ({ img, title, menuTitleArr}) => {
   `
 
 
+    const MenuLinkHanlder = (title: string) => {
+      setMenuTitle(title)
+      window.scrollTo(0, 1500)
+    }
+
+
   return (
 
       <Col md={8} style={{width: '400px', height: '100%'}} className='d-flex flex-column justify-content-center align-items-center'>
@@ -40,7 +46,7 @@ const PortfolioMenu: FC<PortfolioMenuProps> = ({ img, title, menuTitleArr}) => {
         <Col style={{position: 'relative', top: '70px'}}><img style={{width: '180px', height: '162px'}}  src={img} alt=""  /></Col>
 
         <img style={{width: '389px', height: '152px'}} src={lineBox} alt="" />
-        <Col style={{position: 'relative', top: '-60px'}}><MenuLink onClick={() => {setMenuTitle(title)}}>{title}</MenuLink></Col>
+        <Col style={{position: 'relative', top: '-60px'}}><MenuLink onClick={() => {MenuLinkHanlder(title)}}>{title}</MenuLink></Col>
 
       </Col>
   )

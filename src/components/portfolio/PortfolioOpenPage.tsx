@@ -123,9 +123,9 @@ const PortfolioOpenPage: FC = ()  =>  {
   return (
     <Col md={12} sm={12} xs={12}>
 
-      <Col md={12} sm={12} xs={12} style={{width: '100%', fontSize: 'calc(3rem + 0.5vw)', textAlign: 'center', fontFamily: 'Unbounded'}} className='mb-4'>{singleCard[0].title}</Col>
+      <Col md={12} sm={12} xs={12} style={{width: '100%', fontSize: 'calc(2rem + 0.7vw)', textAlign: 'center', fontFamily: 'Unbounded'}} className='mb-4'>{singleCard[0].title}</Col>
 
-      <Col md={12} sm={12} xs={12} style={{fontSize: 'calc(0.5rem + 0.4vw)', textAlign: 'center', fontFamily: 'Unbounded', width: '100%', height: 'max-content'}} className='mb-4'>{singleCard[0].description}</Col>
+      <Col md={12} sm={12} xs={12} style={{fontSize: 'calc(0.3rem + 0.4vw)', textAlign: 'center', fontFamily: 'Unbounded', width: '100%'}} className='mb-4'>{singleCard[0].description}</Col>
 
       <Col className='mb-4'><img style={{width: '100%'}} src={singleCard[0].imgOne} alt="img-title" /></Col>
 

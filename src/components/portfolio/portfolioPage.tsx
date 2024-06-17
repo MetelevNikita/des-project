@@ -42,6 +42,17 @@ interface menuArrProps {
 
 const PortfolioPage:FC<PortfolioPageProps> =  ( { menuPortfolio } )  =>  {
 
+
+  const [scroll, setScroll]  = useState(0)
+
+
+
+  window.addEventListener('scroll', () => {setScroll(window.scrollY)
+ })
+
+
+  console.log(scroll)
+
   const portfolioSelector = useAppSelector((state) => state.portfolio)
   const {menuTitle, setMenuTitle} = menuPortfolio
 
