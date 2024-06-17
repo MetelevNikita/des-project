@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 
 import { Col, Row } from 'react-bootstrap'
 
+// redux
+
+import { useAppSelector } from '../types/redux-types';
+
 // img
 
 import img1 from './../../asset/blockThree/sliderImg/1.png'
@@ -29,9 +33,36 @@ interface sliderArrProps {
 
 interface blockThreeProps {
   scrollAnimation: any
+  menuPortfolio: any
 }
 
-const BlockThree: FC<blockThreeProps> = ({ scrollAnimation }) => {
+const BlockThree: FC<blockThreeProps> = ({ scrollAnimation, menuPortfolio }) => {
+
+  const {menuTitle, setMenuTitle} = menuPortfolio
+  const selector = useAppSelector(state => state.portfolio)
+
+
+  const checkedSelector: any[] = []
+
+
+  const selectorMenu = () => {
+
+    if(menuTitle === 'Графический дизайн') {
+      return checkedSelector.push(selector.graphic)
+    } else if(menuTitle === 'Веб-дизайн')  {
+      return checkedSelector.push(selector.web)
+    } else if (menuTitle === 'Иллюстрации')  {
+      return checkedSelector.push(selector.illustration)
+    } else {
+      return []
+    }
+  }
+
+  selectorMenu()
+
+
+  console.log(checkedSelector[0])
+
 
   const {scroll, setScroll} = scrollAnimation
 
@@ -72,25 +103,7 @@ const BlockThree: FC<blockThreeProps> = ({ scrollAnimation }) => {
   })
 
 
-   const [imgOne, apiOne] = useSpring(() => ({
-    from: {
-      opacity: 0,
-      transform: 'translateX(-10px)'
-    },
-    config: {duration: 3000},
-   }))
-
-
-   const [imgTwo, apiTwo] = useSpring(() => ({
-    from: {
-      opacity: 0,
-      transform: 'translateX(-10px)'
-    },
-    config: {duration: 3000},
-   }))
-
-
-   const [imgThree, apiThree] = useSpring(() => ({
+   const [img, api] = useSpring(() => ({
     from: {
       opacity: 0,
       transform: 'translateX(-10px)'
@@ -101,20 +114,18 @@ const BlockThree: FC<blockThreeProps> = ({ scrollAnimation }) => {
 
 
    if(scroll > 200) {
-    apiOne.start({opacity: 1, transform: 'translateX(0px)', delay: 500})
-    apiTwo.start({opacity: 1, transform: 'translateX(0px)', delay: 1000})
-    apiThree.start({opacity: 1, transform: 'translateX(0px)', delay: 1500})
+    api.start({opacity: 1, transform: 'translateX(0px)', delay: 500})
    }
 
 
   return (
 
-    <Row md={12} className='mt-4'>
+    <Row lg={12} md={12} className='mt-5'>
 
         <Col md={12} className='d-flex align-items-center'>
-          <Col ld={2} md={4} className='d-flex align-items-center justify-content-start'><div style={{fontFamily: 'Unbounded', fontSize: '32px', color: '#FF974D'}}>Проекты</div></Col>
-          <Col ld={4} md={3} className='d-flex align-items-center justify-content-start'><div style={{fontFamily: 'Unbounded', fontSize: '20px', color: '#FF974D'}}>/</div></Col>
-          <Col ld={8} md={3} className='d-flex align-items-center justify-content-start'><div style={{fontFamily: 'Unbounded', fontSize: '20px', color: '#FF974D'}}>2019-2024</div></Col>
+          <Col ld={6} md={6} className='d-flex justify-content-start'><div style={{fontFamily: 'Unbounded', fontSize: 'calc(1rem + 0.5vw)', color: '#FF974D'}}>Проекты / 2019-2024</div></Col>
+          <Col ld={6} md={6} className='d-flex justify-content-end'><div style={{fontFamily: 'Unbounded', fontSize: 'calc(1rem + 0.5vw)', color: '#FF974D'}}>{menuTitle}</div></Col>
+
         </Col>
 
       <Row className='mb-4'>
@@ -123,18 +134,15 @@ const BlockThree: FC<blockThreeProps> = ({ scrollAnimation }) => {
 
 
 
-        <Col className='d-flex flex-lg-row flex-column justify-content-md-between justify-content-center mt-4 mb-4'>
-          <animated.div style={imgOne}>
-              <Col className='d-flex justify-content-lg-start justify-content-center mb-3' md={12}><ImgBanner img={sliderArr[0].img} /></Col>
-          </animated.div>
+        <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-column justify-content-lg-between justify-content-center mt-5 mb-4'>
 
-          <animated.div style={imgTwo}>
-              <Col  className='d-flex justify-content-lg-start justify-content-center mb-3' md={12}><ImgBanner img={sliderArr[1].img} /></Col>
-          </animated.div>
 
-          <animated.div style={imgThree}>
-              <Col className='d-flex justify-content-lg-start justify-content-center mb-3' md={12}><ImgBanner img={sliderArr[2].img} /></Col>
-          </animated.div>
+        {(checkedSelector[0].length  < 1) ? <></> : checkedSelector[0].map((item: any) => {
+          return <animated.div style={img}>
+                    <Col lg={4} md={12} sm={12} xs={12} className='d-flex justify-content-center mb-4'><Link to={`portfolio/${item.category}/${item.id}`}><ImgBanner img={item.imgOne} title={item.title}/></Link></Col>
+                </animated.div>
+        })}
+
         </Col>
 
 

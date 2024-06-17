@@ -14,7 +14,6 @@ import BlockFour from './blockFour'
 
 // slider
 
-import SliderController from '../slider/sliderController'
 
 interface MainProps {
   scrollAnimation: any
@@ -25,7 +24,6 @@ interface MainProps {
 const Main:FC<MainProps> = ({scrollAnimation, menuElem}) => {
 
    const {scroll, setScroll} = scrollAnimation
-   const {menuTitle, setMenuTitle} = menuElem
 
 
   return (
@@ -33,7 +31,7 @@ const Main:FC<MainProps> = ({scrollAnimation, menuElem}) => {
     <Row>
       <BlockOne title={`Творческий потенциал и дизайн решения`} />
       <BlockTwo />
-      <BlockThree scrollAnimation = {{scroll, setScroll}}/>
+      <BlockThree menuPortfolio={menuElem} scrollAnimation = {{scroll, setScroll}}/>
       <BlockFour menuPortfolio={menuElem}  scrollAnimation = {{scroll, setScroll}}/>
     </Row>
 

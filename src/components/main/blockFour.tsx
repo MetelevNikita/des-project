@@ -10,7 +10,9 @@ import { Col, Row } from 'react-bootstrap'
 
 // img
 
-import img from './../../asset/blockFour/img.svg'
+import img_web from './../../asset/blockFour/img_web.svg'
+import img_grpah from './../../asset/blockFour/img_graph.svg'
+import img_illustr from './../../asset/blockFour/img_illustration.svg'
 
 //
 
@@ -63,6 +65,20 @@ const BlockFour: FC<BlockFourProps> = ({ scrollAnimation, menuPortfolio }) => {
   ]
 
 
+  const selectIamge = () => {
+
+    if (menuTitle === 'Графический дизайн')  {
+      return img_grpah
+    } else if (menuTitle === 'Веб-дизайн')   {
+      return img_web
+    } else if (menuTitle === 'Иллюстрации') {
+      return img_illustr
+    } else {
+      return
+    }
+  }
+
+
 
   // animated
 
@@ -82,9 +98,6 @@ const BlockFour: FC<BlockFourProps> = ({ scrollAnimation, menuPortfolio }) => {
   }))
 
 
-
-
-
   if(scroll > 200) {
     apiText1({opacity: 1, transform: 'translateX(0px)', delay: 200})
     apiText2({opacity: 1, transform: 'translateX(0px)', delay: 400})
@@ -93,25 +106,21 @@ const BlockFour: FC<BlockFourProps> = ({ scrollAnimation, menuPortfolio }) => {
 
 
 
-
-
-
-
-
-
   return (
 
     <Row md={12} className='mt-4 mb-4'>
       <Col md={8} className='mb-4'>
 
-     <animated.div style={text1Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[0].link}><StyledMenu onClick={() => {setMenuTitle('Графический дизайн')}}>{menuArray[0].title}</StyledMenu></Link></Col></animated.div>
-     <animated.div style={text2Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[1].link}><StyledMenu onClick={() => {setMenuTitle('Веб-дизайн')}}>{menuArray[1].title}</StyledMenu></Link></Col></animated.div>
-     <animated.div style={text3Spring}><Col><Link style={{fontFamily: 'Unbounded', fontSize: '50px', textDecoration: 'none', color: 'black'}} to={menuArray[2].link}><StyledMenu onClick={() => {setMenuTitle('Иллюстрации')}}>{menuArray[2].title}</StyledMenu></Link></Col></animated.div>
+     <animated.div style={text1Spring}><Col style={{fontFamily: 'Unbounded', fontSize: 'calc(2.5rem + 1vw)', textDecoration: 'none', color: 'black', cursor: 'pointer'}}><StyledMenu onClick={() => {setMenuTitle('Графический дизайн')}}>{menuArray[0].title}</StyledMenu></Col></animated.div>
+
+     <animated.div style={text2Spring}><Col style={{fontFamily: 'Unbounded', fontSize: 'calc(2.5rem + 1vw', textDecoration: 'none', color: 'black', cursor: 'pointer'}}><StyledMenu onClick={() => {setMenuTitle('Веб-дизайн')}}>{menuArray[1].title}</StyledMenu></Col></animated.div>
+
+     <animated.div style={text3Spring}><Col style={{fontFamily: 'Unbounded', fontSize: 'calc(2.3rem + 1vw', textDecoration: 'none', color: 'black', cursor: 'pointer'}}><StyledMenu onClick={() => {setMenuTitle('Иллюстрации')}}>{menuArray[2].title}</StyledMenu></Col></animated.div>
 
       </Col>
 
       <Col md={4} className='mb-4'>
-        <img src={img} alt="img" />
+        <img style={{transition: 'all 0.3s ease'}} src={selectIamge()} alt="img" />
       </Col>
     </Row>
 

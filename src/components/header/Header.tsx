@@ -96,15 +96,15 @@ const springs = useSpring({
     <Row md={12} className='mt-3 d-flex'>
 
 
-      <Col lg={8} md={6} className='d-flex justify-content-start mb-4'><animated.div style={{width: 'max-content', height: 'max-content', ...springs}}><Link to={'/'}><img src={imgLogo} alt="logo" /></Link></animated.div></Col>
+      <Col lg={8} md={6} sm={6} xs={2} className='d-flex justify-content-start mb-4'><animated.div style={{width: 'max-content', height: 'max-content', ...springs}}><Link to={'/'}><img src={imgLogo} alt="logo" /></Link></animated.div></Col>
 
 
-      <Col lg={3} md={4} className='d-flex align-items-center justify-content-md-end justify-content-center flex-lg-row mb-4'>
+      <Col lg={3} md={4} sm={6} xs={7} className='d-flex align-items-center justify-content-md-end justify-content-center flex-lg-row mb-4'>
         {menu.map((item, index) => {return <Col key={index} className='d-flex align-items-center justify-content-lg-end justify-content-center'><Link style={{color: 'black', textDecoration: 'none', fontSize: '16px', fontFamily: 'Montserrat'}} to={item.path} key={index}>{item.title}</Link></Col>})}
       </Col>
 
 
-      <Col lg={1} md={2} className='d-flex align-items-center justify-content-center flex-lg-row mb-4'>
+      <Col lg={1} md={2} sm={6} xs={3} className='d-flex align-items-center justify-content-center flex-lg-row mb-4'>
         {socialLink.map((item, index) => {return <Col key={index} className='d-flex align-items-center justify-content-center'><StyledLink><a href={item.link} key={index}><img src={item.img} alt="social" /></a></StyledLink></Col>})}
       </Col>
 
