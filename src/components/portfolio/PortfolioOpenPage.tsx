@@ -139,11 +139,11 @@ const PortfolioOpenPage: FC = ()  =>  {
       {(singleCard[0].imgFour) ?   <Col md={12} sm={12} xs={12}  className='mb-4'><img style={{width: '100%'}} src={singleCard[0].imgFour} alt="img-four" /> </Col> : null}
 
 
-      <Col md={12} sm={12} xs={12} className='d-flex mb-4'>
+      <Col lg={12} md={12} sm={12} xs={12} className='d-flex flex-lg-row flex-column  mb-4'>
 
-      <Col md={4} sm={12} xs={12} className='d-flex justify-content-md-start justify-content-center'><Link style={{fontFamily: 'Unbounded', fontSize: '20px', textDecoration: 'none', color: 'black'}} to={'/portfolio'}><StyledMenu>{menuArray[0].title}</StyledMenu></Link></Col>
-      <Col md={4} sm={12} xs={12} className='d-flex justify-content-center'><Link style={{fontFamily: 'Unbounded', fontSize: '20px', textDecoration: 'none', color: 'black'}} to={'/portfolio'}><StyledMenu>{menuArray[1].title}</StyledMenu></Link></Col>
-      <Col md={4} sm={12} xs={12} className='d-flex justify-content-md-end justify-content-center' ><Link style={{fontFamily: 'Unbounded', fontSize: '20px', textDecoration: 'none', color: 'black'}} to={'/portfolio'}><StyledMenu>{menuArray[2].title}</StyledMenu></Link></Col>
+      <Col lg={4} md={12} sm={12} xs={12} className='d-flex justify-content-md-start justify-content-center'><Link style={{fontFamily: 'Unbounded', fontSize: '20px', textDecoration: 'none', color: 'black'}} to={'/portfolio'}><StyledMenu>{menuArray[0].title}</StyledMenu></Link></Col>
+      <Col lg={4} md={12} sm={12} xs={12} className='d-flex justify-content-center'><Link style={{fontFamily: 'Unbounded', fontSize: '20px', textDecoration: 'none', color: 'black'}} to={'/portfolio'}><StyledMenu>{menuArray[1].title}</StyledMenu></Link></Col>
+      <Col lg={4} md={12} sm={12} xs={12} className='d-flex justify-content-md-end justify-content-center' ><Link style={{fontFamily: 'Unbounded', fontSize: '20px', textDecoration: 'none', color: 'black'}} to={'/portfolio'}><StyledMenu>{menuArray[2].title}</StyledMenu></Link></Col>
 
       </Col>
 

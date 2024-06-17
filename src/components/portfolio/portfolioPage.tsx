@@ -91,7 +91,7 @@ const PortfolioPage:FC<PortfolioPageProps> =  ( { menuPortfolio } )  =>  {
 
   return (
 
-    <Row lg={12} style={{height: '100%'}} className='d-flex'>
+    <Row lg={12} md={12} style={{height: '100%'}} className='d-flex'>
 
 
       <Row className='mt-4'>
@@ -102,7 +102,7 @@ const PortfolioPage:FC<PortfolioPageProps> =  ( { menuPortfolio } )  =>  {
 
       <Col className='d-flex flex-lg-row flex-column  mt-4'>
 
-          {menuWork.map((menu) => {return <Col className='d-flex align-items-center justify-content-center' md={12}><PortfolioMenu menuTitleArr={{menuTitle, setMenuTitle}} title={menu.title} img={menu.img}/></Col>})}
+          {menuWork.map((menu) => {return <Col className='d-flex align-items-center justify-content-center'><PortfolioMenu menuTitleArr={{menuTitle, setMenuTitle}} title={menu.title} img={menu.img}/></Col>})}
 
       </Col>
 
@@ -113,15 +113,15 @@ const PortfolioPage:FC<PortfolioPageProps> =  ( { menuPortfolio } )  =>  {
 
 
       {(menuTitle === 'Графический дизайн') ? portfolioSelector.graphic.map((card: any, index: number) => {
-        return <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' key={index}><PortfolioCard link={`${card.category}/${card.id}`} title={card.title} img={card.imgOne}></PortfolioCard></Col>
+        return <Col className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' key={index}><PortfolioCard link={`${card.category}/${card.id}`} title={card.title} img={card.imgOne}></PortfolioCard></Col>
       }) : <></>}
 
       {(menuTitle === 'Веб-дизайн') ? portfolioSelector.web.map((card: any, index: number) => {
-        return <Col md={12} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' key={index}><PortfolioCard link={`${card.category}/${card.id}`} title={card.title} img={card.titleImage}></PortfolioCard></Col>
+        return <Col className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' key={index}><PortfolioCard link={`${card.category}/${card.id}`} title={card.title} img={card.titleImage}></PortfolioCard></Col>
       }) : <></>}
 
       {(menuTitle === 'Иллюстрации') ? portfolioSelector.illustration.map((card: any, index: number) => {
-        return <Col md={4} sm={12} xs={12} className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' key={index}><PortfolioCard link={`${card.category}/${card.id}`} title={card.title} img={card.titleImage}></PortfolioCard></Col>
+        return <Col className='d-flex flex-md-row flex-column justify-content-center align-items-center mb-3' key={index}><PortfolioCard link={`${card.category}/${card.id}`} title={card.title} img={card.titleImage}></PortfolioCard></Col>
       }) : <></>}
 
 
