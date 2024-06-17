@@ -139,7 +139,7 @@ const BlockThree: FC<blockThreeProps> = ({ scrollAnimation, menuPortfolio }) => 
 
         {(checkedSelector[0].length  < 1) ? <></> : checkedSelector[0].map((item: any) => {
           return <animated.div style={img}>
-                    <Col lg={4} md={12} sm={12} xs={12} className='d-flex justify-content-center mb-4'><Link to={`portfolio/${item.category}/${item.id}`}><ImgBanner img={item.imgOne} title={item.title}/></Link></Col>
+                    <Col lg={12} md={12} sm={12} xs={12} className='d-flex justify-content-center mb-3'><Link to={`portfolio/${item.category}/${item.id}`}><ImgBanner img={item.imgOne} title={item.title}/></Link></Col>
                 </animated.div>
         })}
 

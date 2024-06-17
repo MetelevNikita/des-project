@@ -33,7 +33,7 @@ const BlockOne: FC<blockOneProps> = ({ title }) => {
 
 
 
-          <Col md={10} style={{fontSize: 'calc(3rem + 1vw)', textAlign: 'center', fontWeight: '400', overflow: 'hidden', fontFamily: 'Unbounded', lineHeight: '80px'}}  className='d-flex align-items-center justify-content-center mt-4'>
+          <Col md={12} style={{fontSize: 'calc(3rem + 1.5vw)', textAlign: 'center', fontWeight: '400', overflow: 'hidden', fontFamily: 'Unbounded', lineHeight: '80px'}}  className='d-flex align-items-center justify-content-center mt-4'>
 
             <animated.div style={{width: '100%', height: '100%', ...styleSpring}} className={'text-sm text-md text-xs'}>
 
